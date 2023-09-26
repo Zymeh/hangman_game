@@ -34,7 +34,7 @@ class Hangman:
     def check_guess(self, player_guess):
         '''This function checks if the guessed character is in the word.
 
-        First, the user input is put into lower case. Then, if the guess is in the word: a message is printed indicating this, the index of the character is found which is then used to replace the '_' in word_guessed at the correct location, and finally the total number of characters in the word is reduced accordingly. If the guess incorrect, the number of lives decreases by 1, then 2 messages tell the player their guess is wrong and their remaining lives they have left.
+        First, the user input is put into lower case. Then, if the guess is in the word, the index of the character is found and used to replace the '_' in word_guessed at the correct location, and finally the total number of characters in the word is reduced accordingly. If the guess incorrect, the number of lives decreases by 1.
 
         Args:
             player_guess (`str`): the players choice of character to be tested.
@@ -54,7 +54,7 @@ class Hangman:
     def ask_for_input(self,player_guess):
         '''This function asks for and checks the user input.
 
-            An indefinite while loop is employed to ensure the user input is one unique alphabetic character. If it is valid, the charecter is placed in list_of_guesses.
+            Here we ensure the user input is one unique alphabetic character. If it is valid, the charecter is placed in list_of_guesses.
         '''
         if len(player_guess) != 1 or player_guess.isalpha() == False:
             None
@@ -69,7 +69,7 @@ class Hangman:
 def play_game(word_list):
     '''This function allows us to play hangman.
 
-    We initialise an object in the Hangman class with the users input. we employ an indefinite loop. With each new turn, the word to be guessed is printed, and a series of checks are used to see if the game has ended.
+    We initialise an object in the Hangman class with the users input. We then imploy a window to play the game. The user simply types in their guess, it is validated, an error message is displayed in the window if its not valid. it then checkes if the input is in the word the word the user is guessing. and depending on this, the display window is updated accordingly ( lives decreased if its wrong, or the template word is updated if its right). When the game ends, the `enter` button on the display is removed. 
 
     Args: 
         word list (`list` of `str`): List of words the user wants to play with. 
@@ -142,4 +142,4 @@ def play_game(word_list):
 
     root.mainloop()
 
-play_game(['voluptatem', 'sit', 'quisquam', 'ut', 'numquam', 'dolorem', 'est'])
+play_game(['in', 'mathematics', 'specifically', 'commutative', 'algebra', 'hilberts', 'basis', 'theorem', 'says', 'that', 'a', 'polynomial', 'ring', 'over', 'a', 'Noetherian', 'ring', 'is', 'noetherian'])
