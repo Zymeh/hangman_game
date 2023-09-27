@@ -14,18 +14,19 @@ class Hangman:
         word_guessed (`list`): this lets the user know the structure of the word with underscores, when they guess something correct, the underscore are replaced with thier guess.
 
     '''
-    def __init__(self, word_list, num_lives= 5):
-        '''Initialises the instance based on a list of words given and (optional) the number of lives the player defines.
+    def __init__(self, word_list, num_lives):
+        '''Initialises the instance based on a list of words given and the number of lives the player defines.
 
         Args:
             word_list (`list` of `str`): initialises the list of words given to be guessed.
-            num_lives (`int`, optional): initialises the number of lives for the given instance, the default number of lives is 5
+            num_lives (`int`): initialises the number of lives for the given instance, the default number of lives is 5
         '''
         self.word_list = word_list
         self.num_lives = num_lives
+
         word = random.choice(self.word_list)
         word = word.translate(str.maketrans('', '', string.punctuation))
-        print(word)
+
         self.word = word.lower()
         self.list_of_guesses = []
         self.num_letters = len(self.word)
@@ -69,19 +70,20 @@ class Hangman:
             return
 
 
-def play_game(word_list):
+def play_game(word_list, number_of_lives= 5):
     '''This function allows us to play hangman.
 
     We initialise an object in the Hangman class with the users input. We then imploy a window to play the game. The user simply types in their guess. It is validated, an error message is displayed in the window if its not valid. it then checkes if the input is in the word the word the user is guessing. and depending on this, the display window is updated accordingly ( lives decreased if its wrong, or the template word is updated if its right). When the game ends, the `enter` button on the display is removed. 
 
     Args: 
         word list (`list` of `str`): List of words the user wants to play with. 
+        number_of_lives (`int` (optional)): Number of lives the user wishes to play with. 
 
     Return: 
         Lets the player know if they have won (lenght of the word to be guessed is 0) or lost (ran out of lives).
 
     '''
-    game = Hangman(word_list)
+    game = Hangman(word_list, number_of_lives)
     root = Tk()
     root.title("Hangman Game")
 
@@ -145,6 +147,4 @@ def play_game(word_list):
 
     root.mainloop()
 
-#play_game(['in', 'mathematics', 'specifically', 'commutative', 'algebra', 'hilberts', 'basis', 'theorem', 'says', 'that', 'a', 'polynomial', 'ring', 'over', 'a', 'noetherian', 'ring', 'is', 'noetherian'])
-
-play_game(['HE.l.l!@#$o'])
+play_game(['in', 'mathematics', 'specifically', 'commutative', 'algebra', 'hilberts', 'basis', 'theorem', 'says', 'that', 'a', 'polynomial', 'ring', 'over', 'a', 'noetherian', 'ring', 'is', 'noetherian'])
