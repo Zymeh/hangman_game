@@ -14,9 +14,9 @@
 
 This project, assigned by AiCore, provided an exceptional platform for me to apply and reinforce the knowledge I've gained throughout the course. The primary aim of this project was to harness the power of classes, which turned out to be an indispensable tool. Classes empower us to create instances that can seamlessly interact with class methods, allowing us to execute customised tasks for each instance.
 
-Motivated by my desire to enhance my skills, I decided to take this project a step further. It presented an opportunity to broaden my horizons. To make the game more engaging, I embarked on implementing a graphical user interface (GUI). This endeavour, while demanding, proved immensely rewarding as it required extensive modifications to the Hangman class. This deep dive into the inner workings of classes provided me with invaluable insights into their functionality and utility.
+Motivated by my desire to enhance my skills, I decided to take this project a step further. To make the game more engaging, I embarked on implementing a graphical user interface (GUI). This endeavour, while demanding, proved immensely rewarding as it required modifications to the Hangman class. This deep dive into the inner workings of classes provided me with invaluable insights into their functionality and utility.
 
-Furthermore, I recognised the importance of refining the process of selecting a random word for the game. To ensure a fair and winnable experience for players, I improved the random word selection by eliminating capitalisation and punctuation from the word pool. This alteration was crucial, as the game only accepts lowercase alphabetical characters as inputs. By making this adjustment, I ensured a more enjoyable and balanced gaming experience. 
+Furthermore, I recognised the importance of refining the process of selecting a random word for the game. To ensure a fair and winnable experience for players, I improved the random word selection by eliminating capitalisation and punctuation from the random word. This alteration was crucial, as the game only accepts lowercase alphabetical characters as inputs. By making this adjustment, I ensured a more enjoyable and balanced gaming experience. 
 
 ## Versions
 
