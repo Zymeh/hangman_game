@@ -1,7 +1,7 @@
 from tkinter import *
 
 import random
-
+import string
 class Hangman:
     '''This class is used to play the Hangman Game.
 
@@ -23,7 +23,10 @@ class Hangman:
         '''
         self.word_list = word_list
         self.num_lives = num_lives
-        self.word = random.choice(self.word_list)
+        word = random.choice(self.word_list)
+        word = word.translate(str.maketrans('', '', string.punctuation))
+        print(word)
+        self.word = word.lower()
         self.list_of_guesses = []
         self.num_letters = len(self.word)
 
@@ -69,7 +72,7 @@ class Hangman:
 def play_game(word_list):
     '''This function allows us to play hangman.
 
-    We initialise an object in the Hangman class with the users input. We then imploy a window to play the game. The user simply types in their guess, it is validated, an error message is displayed in the window if its not valid. it then checkes if the input is in the word the word the user is guessing. and depending on this, the display window is updated accordingly ( lives decreased if its wrong, or the template word is updated if its right). When the game ends, the `enter` button on the display is removed. 
+    We initialise an object in the Hangman class with the users input. We then imploy a window to play the game. The user simply types in their guess. It is validated, an error message is displayed in the window if its not valid. it then checkes if the input is in the word the word the user is guessing. and depending on this, the display window is updated accordingly ( lives decreased if its wrong, or the template word is updated if its right). When the game ends, the `enter` button on the display is removed. 
 
     Args: 
         word list (`list` of `str`): List of words the user wants to play with. 
@@ -83,7 +86,7 @@ def play_game(word_list):
     root.title("Hangman Game")
 
     def button_command():
-        # Get the user's input from the entry field
+        # gets users input from the entry field
         player_guess = user_input.get()
         user_input.delete(0, END)
         if player_guess in game.word_guessed:
@@ -92,16 +95,16 @@ def play_game(word_list):
         if len(player_guess) != 1 or player_guess.isalpha() == False:
             result_label.config(text='Invalid input. Please enter a single alphabetical character')
             return
-        # Call the check_guess method with the input
+        # call the check_guess method with the input
         game.ask_for_input(player_guess)
         
-        # Update the labels to reflect the game state
+        # update the labels to reflect the game state
         word_to_be_guessed_2.config(text=game.word_guessed)
         num_of_lives_2.config(text=game.num_lives)
         letters_guessed_2.config(text=game.list_of_guesses)
         
 
-        # Check if the game is won or lost
+        # check if the game is won or lost
         if game.num_lives == 0:
             result_label.config(text="You lost!")
             button.destroy()
@@ -142,4 +145,6 @@ def play_game(word_list):
 
     root.mainloop()
 
-play_game(['in', 'mathematics', 'specifically', 'commutative', 'algebra', 'hilberts', 'basis', 'theorem', 'says', 'that', 'a', 'polynomial', 'ring', 'over', 'a', 'Noetherian', 'ring', 'is', 'noetherian'])
+#play_game(['in', 'mathematics', 'specifically', 'commutative', 'algebra', 'hilberts', 'basis', 'theorem', 'says', 'that', 'a', 'polynomial', 'ring', 'over', 'a', 'noetherian', 'ring', 'is', 'noetherian'])
+
+play_game(['HE.l.l!@#$o'])
