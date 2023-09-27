@@ -93,4 +93,4 @@ def play_game(word_list):
             return print('GG! you have won the game')
         
 
-play_game(['Voluptatem', 'sit', 'quisquam', 'ut', 'numquam', 'dolorem', 'est'])
+play_game(['voluptatem', 'sit', 'quisquam', 'ut', 'numquam', 'dolorem', 'est'])
